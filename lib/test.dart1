@@ -1,0 +1,437 @@
+Scaffold(
+        key: scaffoldkey,
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+          title: Text(
+            "hautpeel",
+            style: TextStyle(fontSize: 25.0),
+          ),
+          actions: [IconButton(onPressed: (){
+                 scaffoldkey.currentState!.openDrawer();
+          },
+           icon: Icon(Icons.arrow_back_ios_new)) ,],
+          elevation: 100.0,
+          leadingWidth: 20.0,
+          shadowColor: Colors.green,
+          brightness: Brightness.dark,
+          centerTitle: true,
+        ),
+
+        /////////////////////////////////
+        drawerScrimColor: Colors.green.withOpacity(0.2),
+        drawer: Drawer(
+          child: Column(
+            children: [
+              UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Colors.green),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Text("N"),
+                ),
+                accountName: Text("Naif AlHuthaifi"),
+                accountEmail: Text("Naif.hautpeel@gmail.com"),
+              ),
+              ListTile(
+                title: Text("logout"),
+                leading: Icon(Icons.logout),
+                onTap: () {},
+              ),
+              ListTile(
+                title: Text("help"),
+                leading: Icon(Icons.help),
+                onTap: () {},
+              ),
+              ListTile(
+                title: Text("signin"),
+                leading: Icon(Icons.get_app),
+                onTap: () {},
+              ),
+              ListTile(
+                title: Text("login"),
+                leading: Icon(Icons.login),
+                onTap: () {},
+              ),
+            ],
+          ),
+        ),
+
+        ////////////////////////////////
+
+        body: Center(
+          child: Container(
+              child: RaisedButton(
+            onPressed: (() {
+              scaffoldkey.currentState!.openDrawer();
+              print("tap");
+            }),
+            child: Text(
+              "open drawer",
+              style: TextStyle(
+                  fontSize: 25.0,
+                  color: Colors.green,
+                  fontWeight: FontWeight.bold),
+            ),
+          )),
+        ));
+        //////////////////////////////////////////////////////////////////
+        import 'dart:ffi';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+class Test extends StatefulWidget {
+  Test({Key? key}) : super(key: key);
+
+  @override
+  State<Test> createState() => _TestState();
+}
+
+class _TestState extends State<Test> with SingleTickerProviderStateMixin {
+  late TabController mycontroller;
+  @override
+  @override
+  void initState() {
+    super.initState();
+     mycontroller = new TabController(length: 3, vsync: this , initialIndex: 2);
+  }
+
+  @override
+  List<Widget> WidgetPages = [
+    Text(
+      "wael",
+      style: TextStyle(fontSize: 40.0),
+    ),
+    Text(
+      "basel",
+      style: TextStyle(fontSize: 40.0),
+    ),
+    Text(
+      "yazan",
+      style: TextStyle(fontSize: 40.0),
+    )
+  ];
+  List Mobile = [
+    {"name": "s20", "screen": "6.2", "cpu": "IOS 1 "},
+    {"name": "s30", "screen": "6.3", "cpu": "IOS 2"},
+    {"name": "s40", "screen": "6.4", "cpu": "IOS 3"},
+    {"name": "s50", "screen": "6.5", "cpu": "IOS 4"},
+  ];
+  bool USA = false;
+  bool KSA = false;
+  bool JOD = false;
+  bool Mercedes = false;
+  bool Bmw = false;
+  bool ROLLSROYCE = false;
+  bool notify = false;
+  var SelectedCountry;
+  var Car;
+  GlobalKey<ScaffoldState> scaffoldkey = new GlobalKey<ScaffoldState>();
+  List User = ["yazan", "naif", "mohammed"];
+  int SelectedIndex = 0;
+  var SelectedProdcut;
+  bool Garneir = true;
+  bool Dior = true;
+
+  Widget build(BuildContext context) {
+    return  Scaffold(
+
+          drawerScrimColor: Colors.green.withOpacity(0.5),
+          appBar: AppBar(
+            title: Text("hautpeel"),
+            backgroundColor: Colors.green,
+            titleSpacing: 100.0,
+            brightness: Brightness.light,
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    scaffoldkey.currentState?.openDrawer();
+                  },
+                  icon: Icon(Icons.keyboard_return))
+            ],
+            bottom: TabBar(
+              controller: mycontroller,
+              indicatorColor: Colors.black,
+              isScrollable: false,
+              labelColor: Colors.white,
+              labelStyle: TextStyle(fontWeight: FontWeight.bold),
+              onTap: (index) {
+                print(index);
+              },
+              tabs: [
+                Tab(
+                  icon: Icon(Icons.abc),
+                  child: Container(child: Text("widget one")),
+                ),
+                Tab(
+                  icon: Icon(Icons.abc),
+                  child: Container(child: Text("widget two")),
+                ),
+                Tab(
+                  icon: Icon(Icons.abc),
+                  child: Container(
+                    child: Text("widget three"),
+                  ),
+                )
+              ],
+            ),
+          ),
+          drawer: Drawer(
+            backgroundColor: Colors.green,
+            width: 200.0,
+            child: Column(children: [
+              UserAccountsDrawerHeader(
+                  currentAccountPicture: CircleAvatar(
+                      child: Text("Y"), backgroundColor: Colors.white),
+                  decoration: BoxDecoration(
+                      color: Colors.green,
+                      border: Border.all(color: Colors.white)),
+                  accountName: Text("yazan"),
+                  accountEmail: Text("yazan@gmail.com")),
+              RaisedButton(
+                  child: Row(
+                    children: [
+                      Icon(Icons.home_repair_service_sharp),
+                      Text("sign in"),
+                    ],
+                  ),
+                  onPressed: () {
+                    print("sign in");
+                  }),
+              RaisedButton(
+                  child: Row(
+                    children: [
+                      Icon(Icons.home_repair_service_sharp),
+                      Text("help"),
+                    ],
+                  ),
+                  onPressed: () {
+                    print("help");
+                  }),
+              RaisedButton(
+                  child: Row(
+                    children: [
+                      Icon(Icons.home_repair_service_sharp),
+                      Text("privacy"),
+                    ],
+                  ),
+                  onPressed: () {
+                    print("privacy");
+                  }),
+              RaisedButton(
+                  child: Row(
+                    children: [
+                      Icon(Icons.home_repair_service_sharp),
+                      Text("about us"),
+                    ],
+                  ),
+                  onPressed: () {
+                    print("about us");
+                  }),
+            ]),
+          ),
+          body: Center(
+              child: Column(children: [Container(child:PageView(),)],
+    )));
+  }
+}
+///////////////////////////////////////////////////////////////////////////////////////
+Textformfeild lesson 
+import 'dart:ffi';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+class Test extends StatefulWidget {
+  Test({Key? key}) : super(key: key);
+
+  @override
+  State<Test> createState() => _TestState();
+}
+
+class _TestState extends State<Test> with SingleTickerProviderStateMixin {
+  TextEditingController Username = new TextEditingController();
+
+  @override
+  List<Widget> WidgetPages = [
+    Text(
+      "wael",
+      style: TextStyle(fontSize: 40.0),
+    ),
+    Text(
+      "basel",
+      style: TextStyle(fontSize: 40.0),
+    ),
+    Text(
+      "yazan",
+      style: TextStyle(fontSize: 40.0),
+    )
+  ];
+  List Mobile = [
+    {"name": "s20", "screen": "6.2", "cpu": "IOS 1 "},
+    {"name": "s30", "screen": "6.3", "cpu": "IOS 2"},
+    {"name": "s40", "screen": "6.4", "cpu": "IOS 3"},
+    {"name": "s50", "screen": "6.5", "cpu": "IOS 4"},
+  ];
+  List Images = [
+    {"url": "IMAGES/1.jpg"},
+    {"url": "IMAGES/1.jpg"},
+    {"url": "IMAGES/1.jpg"},
+    {"url": "IMAGES/1.jpg"},
+  ];
+  bool USA = false;
+  bool KSA = false;
+  bool JOD = false;
+  bool Mercedes = false;
+  bool Bmw = false;
+  bool ROLLSROYCE = false;
+  bool notify = false;
+  var SelectedCountry;
+  var Car;
+  GlobalKey<ScaffoldState> scaffoldkey = new GlobalKey<ScaffoldState>();
+  List User = ["yazan", "naif", "mohammed"];
+  int SelectedIndex = 0;
+  var SelectedProdcut;
+  bool Garneir = true;
+  bool Dior = true;
+  var value;
+  var username;
+  var phone;
+  Widget build(BuildContext context) {
+    GlobalKey<FormState> formstate = new GlobalKey<FormState>();
+    send() {
+      print("send");
+      var formdata = formstate.currentState;
+      if (formdata!.validate()) {
+        formdata.save() ;
+        print("username : $username");
+        print("phone : $phone");
+      } else {
+        print("not valid");
+      }
+    }
+
+    ;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("homepage"),
+      ),
+      drawer: Drawer(),
+      body: Center(
+          child: Form(
+        key: formstate,
+        child: Column(
+          children: [
+            TextFormField(
+              onSaved: (text) {
+                username = text ;
+              },
+              autovalidateMode: AutovalidateMode.always,
+              validator: (Text) {
+                if (Text!.length < 4) {
+                  return "the text is less than 4 num";
+                }
+                if (Text.length > 10) {
+                  return ("can't be more than 10 word");
+                }
+                return null;
+              },
+            ), TextFormField(
+              onSaved: (text) {
+                phone = text ;
+              },
+              autovalidateMode: AutovalidateMode.always,
+              validator: (Text) {
+                if (Text!.length < 10) {
+                  return "the text is less than 10 num";
+                }
+                if (Text.length > 20) {
+                  return ("can't be more than 20 word");
+                }
+                return null;
+              },
+            ),
+            RaisedButton(
+              onPressed: send,
+              child: Text("send"),
+            )
+          ],
+        ),
+      )),
+    );
+  }
+}
+// 1 -create globalkey type  return FormState
+// 2 -form return key return globalkey
+////////////////////////////////////////////////////////////////////////////////////////
+  routes: {
+        "route1" :(context) {
+          return ONE() ;
+        }
+      }, return Scaffold(
+        appBar: AppBar(
+          title: Text("TestPage"),
+        ),
+        drawer: Drawer(),
+        body: 
+            Column(children: [RaisedButton(onPressed: (){
+             Navigator.of(context).pushNamed("route1");
+            },child: Text("go to page"),),],)
+        );
+  }
+  ////////////////////////////////////////////////////////////////////////////////////////
+  search delegate 
+  class datasearch extends SearchDelegate {
+  List Names = [
+    "yazan",
+    "naif",
+    "faisal",
+    "salman",
+    "abdullah",
+  ];
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            query = "";
+          },
+          icon: Icon(Icons.close))
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          close(context, null);
+        },
+        icon: Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return null!;
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    List Filternames =
+        Names.where((element) => element.startsWith(query)).toList();
+    return ListView.builder(
+      itemCount: query == "" ? Names.length : Filternames.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+            padding: EdgeInsets.all(10.0),
+            child: query == ""
+                ? Text(
+                    "${Names[index]}",
+                    style: TextStyle(fontSize: 25.0),
+                  )
+                : Text(
+                    "${Filternames[index]}",
+                    style: TextStyle(fontSize: 25.0),
+                  ));
+      },
+    );
+  }
+}

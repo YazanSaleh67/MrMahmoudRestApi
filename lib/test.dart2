@@ -1,0 +1,241 @@
+import 'package:course_flutter/one.dart';
+import 'package:course_flutter/test.dart';
+import 'package:course_flutter/test2.dart';
+import 'package:course_flutter/three.dart';
+import 'package:course_flutter/two.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: TestTwo(),
+     
+     
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+        drawer: Drawer(),
+        body: Image.asset(
+          "IMAGES/1.jpg",
+          width: 400,
+          height: 400,
+          fit: BoxFit.fill,
+          
+        ) , 
+        
+        );
+  }
+}
+
+class Login extends StatefulWidget {
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      drawer: Drawer(),
+      body: Container(
+        width: double.infinity,
+        margin: EdgeInsets.only(top: 200.0, left: 20.0, right: 20.0),
+        alignment: Alignment.center,
+        child: Column(children: [
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20),
+            child: Text("STRAWBEERY PAVLOVE RECIPE",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    height: 1.0)),
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.black, width: 2.0),
+                color: Colors.blue),
+          ),
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(vertical: 10.0),
+            margin: EdgeInsets.only(top: 20.0),
+            alignment: Alignment.center,
+            child: Text(
+              "pavolva is a meringue-bassed desert named after the russian ballerina anna pavolva . pavolva feature a crisp crust and a soft, light inside topped with fruit and whipped cream",
+              style: TextStyle(
+                  fontSize: 20.0, fontWeight: FontWeight.bold, height: 1.5),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.black, width: 2.0)),
+            child: Container(
+              margin: EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.star,
+                            color: Colors.yellow,
+                          ),
+                          Icon(
+                            Icons.star,
+                            color: Colors.yellow,
+                          ),
+                          Icon(
+                            Icons.star,
+                            color: Colors.yellow,
+                          ),
+                          Icon(Icons.star),
+                          Icon(Icons.star),
+                        ],
+                      ),
+                      Text(
+                        "17 Reviews",
+                        style: TextStyle(
+                            fontSize: 25.0, fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 10.0),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Icon(
+                            Icons.restaurant,
+                            color: Colors.green,
+                            size: 40,
+                          ),
+                          Icon(
+                            Icons.restaurant,
+                            color: Colors.green,
+                            size: 40.0,
+                          ),
+                          Icon(
+                            Icons.restaurant,
+                            color: Colors.green,
+                            size: 40.0,
+                          )
+                        ]),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text("feed"),
+                        Text("feed"),
+                        Text("feed"),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text("2 - 4"),
+                        Text("2 - 4"),
+                        Text("2 - 4"),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+}
+
+class MainPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+        drawer: Drawer(),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black,
+          onPressed: () {
+            print("sign in");
+          },
+          child: Icon(Icons.add),
+        ),
+        body: Center(
+          child: GestureDetector(
+            child: Container(
+                color: Colors.black,
+                padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 10.0),
+                child: Text(
+                  "add",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold),
+                )),
+          ),
+        ));
+  }
+}
+
+//statelesswidget way to write
+//class Test extends StatelessWidget{
+//Widget build(BuildContext context){
+//return  Scaffold();
+//}
+//}
+
+//.....
+
+//statefulwidget
+//class name extends StatefulWidget {
+//name({Key? key}) : super(key: key);
+
+// @override
+// State<name> createState() => _nameState();
+//}
+
+//class _nameState extends State<name> {
+//@override
+//Widget build(BuildContext context) {
+//return Container();
+//}
+//}
+//........................................
+//listview vs listview builder return loop
+//gridview vs gridviewbuilder  return loop
+//pageview + loop = pageview.builder
+//listview + loop = listview.builder
+//gridview + loop =gridview.builder
+
+
